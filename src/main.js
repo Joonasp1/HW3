@@ -51,10 +51,11 @@ axios ({
 }).then(info => {store.commit('updateProfiles', info)})
 
 axios ({
-        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
+        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
         method: "GET"
-    }).then(info => {store.commit('updateProfiles', info)})
+}).then(info => {store.commit('updatePosts', info)})
 
+console.log(store.getters.postGetter)
 
 new Vue({
     store,
