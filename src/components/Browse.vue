@@ -26,7 +26,7 @@ async function getProfiles() {
   return response.data
 }
 getProfiles()
-//const profiles = getProfiles() See läheb kasutusele
+//const profiles = getProfiles(); //See läheb kasutusele
 
 </script>
 

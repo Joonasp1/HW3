@@ -14,43 +14,45 @@
         </div>
       </nav>
     </header>
-    <Dropdown v-show=false></Dropdown> <!--ei oska seda faking dünaamiliselt muuta, et oleks võimalik, vajutuse peale seda avada/sulgeda-->
+    <!--<Dropdown v-show=false></Dropdown> ei oska seda faking dünaamiliselt muuta, et oleks võimalik, vajutuse peale seda avada/sulgeda-->
+    <div class="drop-down-menu" id="drop-down-menu">
+      <div id="name">Nimi</div>
+      <div id="email">Meil</div>
+      <hr>
+      <a href="browse.html">
+        <div class="hyperlink">Browse</div>
+      </a>
+      <hr>
+      <a href="login.html">
+        <div class="hyperlink">Log Out</div>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
-import Dropdown from "@/components/Dropdown";
 
-let showDropDown = true;
+let showingDropdown = false;
 
 export default {
   name: "Header",
-  components: {Dropdown},
+  components: {},
   methods: {
-    getShowDropDown: function () {
-      return showDropDown;
-    },
     toggleShowDropDown: function () {
-      if (showDropDown) {
-        console.log("Yes");
-        //this.$router.push(Dropdown);
-        showDropDown = false;
+      if (showingDropdown) {
+        document.getElementById("drop-down-menu").style.display = "none";
+        showingDropdown = false;
       } else {
-        console.log("no");
-        //this.$router.back();
-        showDropDown = true;
+        document.getElementById("drop-down-menu").style.display = "block";
+        showingDropdown = true;
       }
-      console.log(showDropDown);
-
     }
   }
 }
 </script>
 
 <style>
-/*.drop-down-menu {
-  display: none;
-}*/
+
 button {
   padding: 8px 16px;
   margin: 4px 0;
@@ -124,4 +126,30 @@ nav div.avatar-container {
 #avatar:hover {
   cursor: pointer;
 }
+
+.drop-down-menu {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  width: 18%;
+  padding: 20px;
+  padding-top: 60px;
+  background-color: white;
+  display: none;
+}
+
+.drop-down-menu:hover {
+  box-shadow: 0 -10px 20px #4d4d4d;
+}
+
+.hyperlink {
+  color: #0277bd;
+  text-decoration: underline;
+}
+
+.hyperlink:hover {
+  cursor: pointer;
+}
+
 </style>
