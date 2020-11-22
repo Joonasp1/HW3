@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <router-view></router-view>
-    <section class="main-container">
+    <section class="main-container"> <!--needs work-->
       <div v-for="profile in profiles" v-bind:key="profile.id">
         <div class="profile">
           <div class="profile-cropper">
