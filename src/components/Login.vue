@@ -25,7 +25,7 @@
           </div>
           <div>
               <!--<button @click=redirect() class="button" type="submit" name="login">Log In</button>-->
-              <router-link v-bind:to="'/Index'" tag="button"> <!--Nüüd toimib, aga ei eemalda login akent-->
+              <router-link v-bind:to="'/Index'" tag="button">
                 <div>Log in</div>
               </router-link>
               <router-view></router-view>
@@ -44,9 +44,11 @@
 
 <script>
 
+
 export default {
   name: "login",
 }
+
 
 </script>
 
