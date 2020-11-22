@@ -11,25 +11,26 @@
             <small>{post.author.firstname} {post.author.lastname}</small>
             </span>
             <small>{post.createTime}</small>
-            <div v-if="post.media != null">
-              <div v-if="post.media.type == 'image'" class="post-image">
-                <img src={post.media.url} alt="">
-              </div>
-              <div v-if="post.media.type == 'video'" class="post-image">
-                <video controls>
-                  <source src={post.media.url} type="video/mp4">
-                </video>
-              </div>
+          </div>
+          <div v-if="post.media != null">
+            <div v-if="post.media.type == 'image'" class="post-image">
+              <img src={post.media.url} alt="">
+            </div>
+            <div v-if="post.media.type == 'video'" class="post-image">
+              <video controls>
+                <source src={post.media.url} type="video/mp4">
+              </video>
             </div>
           </div>
-        </div>
-        <div class="post-title">
-        </div>
-        <div class="post-actions">
-          <button type="button" name="like" class="like-button" id="like-button">{post.likes}</button>
+          <div class="post-title">
+            <h3 v-if="post.text != null">{post.text}</h3>
+          </div>
+          <div class="post-actions">
+            <button type="button" name="like" class="like-button" id="like-button">{post.likes}</button>
+          </div>
         </div>
       </div>
-  </section>
+    </section>
   </div>
 </template>
 
