@@ -14,18 +14,17 @@
         </div>
       </nav>
     </header>
-    <!--<Dropdown v-show=false></Dropdown> ei oska seda faking dünaamiliselt muuta, et oleks võimalik, vajutuse peale seda avada/sulgeda-->
     <div class="drop-down-menu" id="drop-down-menu">
       <div id="name">Nimi</div>
       <div id="email">Meil</div>
       <hr>
-      <a href="browse.html">
-        <div class="hyperlink">Browse</div>
-      </a>
+      <router-link v-bind:to="'/Browse'">
+        <div @click=toggleShowDropDown() class="hyperlink">Browse</div>
+      </router-link>
       <hr>
-      <a href="login.html">
-        <div class="hyperlink">Log Out</div>
-      </a>
+      <router-link v-bind:to="'/'">
+        <div @click=toggleShowDropDown() class="hyperlink">Log Out</div>
+      </router-link>
     </div>
   </div>
 </template>
