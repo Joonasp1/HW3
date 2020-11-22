@@ -15,8 +15,8 @@
       </nav>
     </header>
     <div class="drop-down-menu" id="drop-down-menu">
-      <div id="name">Nimi</div>
-      <div id="email">Meil</div>
+      <div id="name">{{ profile.firstname }} {{profile.lastname}}</div>
+      <div id="email">{{profile.email}}</div>
       <hr>
       <router-link v-bind:to="'/Browse'">
         <div @click=toggleShowDropDown() class="hyperlink">Browse</div>
@@ -46,7 +46,12 @@ export default {
         showingDropdown = true;
       }
     }
-  }
+  },
+  computed: {
+    profile: function () {
+      return this.$store.getters.profileGetter[0]
+    }
+  },
 }
 </script>
 

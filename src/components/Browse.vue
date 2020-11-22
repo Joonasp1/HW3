@@ -26,7 +26,7 @@ export default {
   components: {Header},
   computed: {
     profiles: function () {
-      return this.$store.getters.profileGetter
+      return this.$store.getters.profileGetter.slice(1)
     }
   },
   methods: {
