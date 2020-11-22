@@ -6,10 +6,10 @@
       <div v-for="profile in profiles" v-bind:key="profile.id">
         <div class="profile">
           <div class="profile-cropper">
-            <img src={profile.avatar}>
+            <img :src="profile.avatar">
           </div>
           <br>
-          <b>{profile.firstname} {profile.lastname}</b>
+          <b>{{profile.firstname}} {{profile.lastname}}</b>
           <br><br>
           <button type="button" name="follow" class="follow-button" id="profile.id" @click="followPressed(profile.id)">Follow</button>
         </div>

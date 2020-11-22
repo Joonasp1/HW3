@@ -7,18 +7,18 @@
         <div class="post">
           <div class="post-author">
             <span class="post-author-info">
-            <img src="post.author.avatar" alt="Post author">
-            <small>{post.author.firstname} {post.author.lastname}</small>
+            <img :src="post.author.avatar" alt="Post author">
+            <small>{{post.author.firstname}} {{post.author.lastname}}</small>
             </span>
-            <small>{post.createTime}</small>
+            <small>{{post.createTime}}</small>
           </div>
           <div v-if="post.media != null">
             <div v-if="post.media.type == 'image'" class="post-image">
-              <img src={post.media.url} alt="">
+              <img :src="post.media.url" alt="">
             </div>
             <div v-if="post.media.type == 'video'" class="post-image">
               <video controls>
-                <source src={post.media.url} type="video/mp4">
+                <source :src="post.media.url" type="video/mp4">
               </video>
             </div>
           </div>
