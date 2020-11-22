@@ -21,34 +21,35 @@ const routes = [
 
 const router = new VueRouter({routes});
 
+function getPosts(){
+    return axios ({
+        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
+        method: "GET"
+    }).then(info => {return Promise.resolve(info.data)})
+}
+function getProfiles(){
+    return axios ({
+        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
+        method: "GET"
+    }).then(info => {return info.data})
+}
+
+
 const store = new Vuex.Store({
     state: {
-
     },
     mutations: {
     },
     getters: {
-        getProfiles: function (){
-            const response = axios ({
-                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
-                method: "GET"
-            })
-            console.log(response.data)
-            return response.data
+        postGetter: function (){
+            return getPosts()
         },
-        getPosts: function (){
-            const response = axios ({
-                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
-                method: "GET"
-            })
-            console.log(response.data)
-            return response.data
-        },
-        getTest: function (){
-            return "test"
+        profileGetter: function (){
+            return getProfiles()
         }
     }
 });
+console.log(getPosts())
 
 
 new Vue({

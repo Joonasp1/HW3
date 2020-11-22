@@ -11,7 +11,6 @@
   export default {
     components: {Header},
   }
-  //console.log(this.$store.getters.getTest())
 
 
 </script>
