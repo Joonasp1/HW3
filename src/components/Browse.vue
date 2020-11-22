@@ -81,6 +81,8 @@ export default {
   margin-right: 5px;
   margin-left: 5px;
   box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  background-color: #ffffff;
+
 }
 
 .profile-cropper {
