@@ -29,10 +29,10 @@ const store = new Vuex.Store({
     },
     mutations: {
         updatePosts: function (state, newPosts){
-            this.state.posts = newPosts
+            state.posts = newPosts.data
         },
         updateProfiles: function (state, newProfiles){
-            this.state.posts = newProfiles
+            state.profiles = newProfiles.data
         }
     },
     getters: {
@@ -48,14 +48,19 @@ const store = new Vuex.Store({
 axios ({
     url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
     method: "GET"
-}).then(info => {store.commit('updateProfiles', info)})
+}).then(info => {
+    console.log(info)
+    store.commit('updateProfiles', info)
+})
 
 axios ({
         url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
         method: "GET"
-}).then(info => {store.commit('updatePosts', info)})
 
-console.log(store.getters.postGetter)
+}).then(info => {
+    console.log(info)
+    store.commit('updatePosts', info)
+})
 
 new Vue({
     store,
