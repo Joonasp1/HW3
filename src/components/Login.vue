@@ -1,6 +1,7 @@
 <template>
   <section class="login-page">
     <section id="login-container">
+      <router-view></router-view>
       <div>
         <h1>Welcome to postIt!</h1>
       </div>
@@ -23,9 +24,12 @@
             <input type="password" name="password" placeholder="Password">
           </div>
           <div>
-            <router-link :to="{name: '/index'}" tag="button">
-              <button class="button" type="submit" name="login">Log In</button>
-            </router-link>
+              <!--<button @click=redirect() class="button" type="submit" name="login">Log In</button>-->
+              <router-link v-bind:to="'/index'" tag="button"> <!--see lihtsalt muudab brauseris aadressiribal ära, aga midagi ei muutu. the fuck-->
+                <div>Log in</div>
+              </router-link>
+              <router-view></router-view>
+
           </div>
           <div>
             <small>
@@ -41,8 +45,7 @@
 <script>
 
 export default {
-  name: "login"
-
+  name: "login",
 }
 
 </script>

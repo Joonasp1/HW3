@@ -1,7 +1,8 @@
 <template>
 
   <div id="app">
-    <login/>
+    <Login></Login>
+    <router-view></router-view>
   </div>
 
 </template>
@@ -9,12 +10,12 @@
 
 
 <script>
-import login from "./components/login.vue"
+import Login from "./components/Login.vue"
 
 export default {
   name: "App",
   components: {
-    login
+    Login
   }
 };
 
@@ -38,245 +39,5 @@ body {
   color: #263238;
 }
 
-a {
-  color: #40c4ff;
-}
-
-button {
-  padding: 8px 16px;
-  margin: 4px 0;
-  color: #ffffff;
-  background-color: #01579b;
-  border: none;
-  border-radius: 4px;
-}
-
-button:hover {
-  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
-  cursor: pointer;
-}
-
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 5;
-}
-
-header:hover {
-  box-shadow: 0 -20px 30px #4d4d4d;
-}
-
-nav {
-  display: flex;
-  background-color: #ffffff;
-  align-items: center;
-}
-
-nav div {
-  height: 30px;
-  flex-grow: 4;
-  padding: 10px;
-}
-
-nav div img {
-  height: 100%;
-  width: 30px;
-  margin-left: 15px;
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-nav div.search-container > input {
-  box-sizing: border-box;
-  height: 30px;
-  width: 80%;
-  margin: 0;
-  padding: 5px;
-  border: 1px solid #e0e0e0;
-}
-
-nav div.search-container > button {
-  height: 30px;
-  width: 20%;
-  margin: 0;
-  padding: 5px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-nav div.avatar-container {
-  margin-right: 15px;
-  text-align: right;
-}
-
-#avatar:hover {
-  cursor: pointer;
-}
-
-.drop-down {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  z-index: 2;
-  width: 18%;
-  padding: 20px;
-  padding-top: 60px;
-  background-color: white;
-  display: none;
-}
-
-.drop-down:hover {
-  box-shadow: 0 -10px 20px #4d4d4d;
-}
-
-.hyperlink {
-  color: #0277bd;
-  text-decoration: underline;
-}
-
-.hyperlink:hover {
-  cursor: pointer;
-}
-
-.main-container {
-  width: 50%;
-  min-height: 100%;
-  margin: auto auto;
-  padding: 90px 15px 15px 15px;
-  background-color: #ffffff;
-}
-
-.post {
-  width: 80%;
-  margin: 15px auto;
-  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
-  border-radius: 5px;
-}
-
-.post .post-author {
-  padding: 10px;
-}
-
-.post .post-author::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.post .post-author .post-author-info {
-  float: left;
-  position: relative;
-  width: 50%;
-}
-
-.post .post-author .post-author-info img {
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: top;
-  margin: 5px;
-}
-
-.post .post-author .post-author-info small {
-  position: absolute;
-  top: 10px;
-  left: 35px;
-}
-
-.post .post-author .post-author-info + small {
-  float: right;
-  color: grey;
-  padding: 10px;
-}
-
-.post .post-image img, video {
-  width: 100%;
-  min-height: 150px;
-  max-height: 350px;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.post .post-title {
-  padding: 10px;
-}
-
-.post .post-title h3 {
-  display: inline;
-}
-
-.post .post-title ~ .post-actions {
-  padding: 10px;
-}
-
-.like-button {
-  /*background-image: url(../images/like.png);*/
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-  background-color: #8a8a8a;
-  width: 60px;
-  height: 25px;
-  padding-left: 23px;
-  line-height: 10px;
-  text-align: left;
-  border: none;
-}
-
-.like-button.liked {
-  background-color: #01579b;
-}
-
-.profile {
-  position:relative;
-  width:48%;
-  height:0;
-  padding-bottom: 48%;
-  float:left;
-  text-align: center;
-  vertical-align: middle;
-  padding-top: 10px;
-  padding-bottom: 225px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
-}
-
-.profile-cropper {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.profile-cropper img {
-  display: inline;
-  margin: 0 auto;
-  height:150%;
-  width:auto;
-}
-
-.follow-button {
-  color: white;
-  background-color: rgb(128, 0, 143);
-  border: 1px solid rgb(128, 0, 143);
-  box-shadow: 0 0 5px rgba(128, 0, 143, 0.33);
-}
-
-.follow-button.followed {
-  color: rgb(128, 0, 143);
-  background-color: white;
-  font-weight: bold;
-  border: 1px solid rgb(128, 0, 143);
-  box-shadow: 0 0 5px rgba(128, 0, 143, 0.33);
-}
 </style>
 
