@@ -25,7 +25,7 @@
           </div>
           <div>
               <!--<button @click=redirect() class="button" type="submit" name="login">Log In</button>-->
-              <router-link v-bind:to="'/index'" tag="button"> <!--see lihtsalt muudab brauseris aadressiribal ära, aga midagi ei muutu. the fuck-->
+              <router-link v-bind:to="'/Index'" tag="button"> <!--Nüüd toimib, aga ei eemalda login akent-->
                 <div>Log in</div>
               </router-link>
               <router-view></router-view>
