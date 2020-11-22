@@ -11,7 +11,9 @@
           <br>
           <b>{{profile.firstname}} {{profile.lastname}}</b>
           <br><br>
-          <button type="button" name="follow" class="follow-button" id="profile.id" @click="followPressed(profile.id)">Follow</button>
+          <button type="button" name="follow" class="follow-button" :id=profile.id @click="followPressed(profile.id)">
+            Follow
+          </button>
         </div>
       </div>
     </section>
@@ -30,27 +32,16 @@ export default {
     }
   },
   methods: {
-
     followPressed: function (id) {
-
       let followbutton = document.getElementById(id);
-
       if (followbutton.classList.contains('followed')) {
-
         followbutton.classList.remove('followed');
-
         followbutton.textContent = "Follow";
-
       } else {
-
         followbutton.classList.add('followed');
-
         followbutton.textContent = "Followed";
-
       }
-
     }
-
   }
 }
 
