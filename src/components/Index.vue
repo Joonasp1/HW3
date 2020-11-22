@@ -23,10 +23,10 @@
             </div>
           </div>
           <div class="post-title">
-            <h3 v-if="post.text != null">{post.text}</h3>
+            <h3 v-if="post.text != null">{{post.text}}</h3>
           </div>
           <div class="post-actions">
-            <button type="button" name="like" class="like-button" id="like-button">{post.likes}</button>
+            <button type="button" name="like" class="like-button" id="like-button">{{post.likes}}</button>
           </div>
         </div>
       </div>
