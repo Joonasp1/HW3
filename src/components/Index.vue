@@ -26,7 +26,7 @@
             <h3 v-if="post.text != null">{{post.text}}</h3>
           </div>
           <div class="post-actions">
-            <button type="button" name="like" class="like-button" id="like-button">{{post.likes}}</button>
+            <button type="button" name="like" class="like-button" id="like-button">{{post.likes | capitalizeLikes}}</button>
           </div>
         </div>
       </div>
@@ -42,6 +42,13 @@ export default {
   computed: {
     posts: function () {
       return this.$store.getters.postGetter
+    }
+  },
+  filters: {
+    capitalizeLikes: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.toUpperCase()
     }
   }
 }
