@@ -21,19 +21,6 @@ const routes = [
 
 const router = new VueRouter({routes});
 
-function getPosts(){
-    return axios ({
-        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
-        method: "GET"
-    }).then(info => {return Promise.resolve(info.data)})
-}
-function getProfiles(){
-    return axios ({
-        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
-        method: "GET"
-    }).then(info => {return info.data})
-}
-
 
 const store = new Vuex.Store({
     state: {
@@ -42,14 +29,19 @@ const store = new Vuex.Store({
     },
     getters: {
         postGetter: function (){
-            return getPosts()
+            return axios ({
+                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
+                method: "GET"
+            }).then(info => {return Promise.resolve(info.data)})
         },
         profileGetter: function (){
-            return getProfiles()
+            return axios ({
+                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
+                method: "GET"
+            }).then(info => {return info.data})
         }
     }
 });
-console.log(getPosts())
 
 
 new Vue({
