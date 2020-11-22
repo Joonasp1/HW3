@@ -3,9 +3,7 @@
     <Header></Header>
     <router-view></router-view>
     <section class="main-container">
-      <ul v-for="post in posts" v-bind:key="post.id">
-        <img :src="post.image" alt="test">
-      </ul>
+      <img v-for="post in posts" :src="post.image" alt="test" v-bind:key="post.id">
     </section>
   </div>
 </template>

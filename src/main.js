@@ -24,24 +24,36 @@ const router = new VueRouter({routes});
 
 const store = new Vuex.Store({
     state: {
+        posts: [],
+        profiles: []
     },
     mutations: {
+        updatePosts: function (state, newPosts){
+            this.state.posts = newPosts
+        },
+        updateProfiles: function (state, newProfiles){
+            this.state.posts = newProfiles
+        }
     },
     getters: {
-        postGetter: function (){
-            return axios ({
-                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/posts",
-                method: "GET"
-            }).then(info => {return Promise.resolve(info.data)})
+        postGetter: function (state){
+            return state.posts
         },
-        profileGetter: function (){
-            return axios ({
-                url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
-                method: "GET"
-            }).then(info => {return info.data})
+        profileGetter: function (state){
+            return state.profiles
         }
     }
 });
+
+axios ({
+    url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
+    method: "GET"
+}).then(info => {store.commit('updateProfiles', info)})
+
+axios ({
+        url: "https://private-anon-35a9ef575f-wad20postit.apiary-mock.com/profiles",
+        method: "GET"
+    }).then(info => {store.commit('updateProfiles', info)})
 
 
 new Vue({
