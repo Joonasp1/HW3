@@ -26,7 +26,7 @@
             <h3 v-if="post.text != null">{{post.text}}</h3>
           </div>
           <div class="post-actions">
-            <button type="button" name="like" class="like-button" id="like-button">{{post.likes | capitalizeLikes}}</button>
+            <button type="button" name="like" class="like-button" id="like-button" @click="likePressed(post.id)">{{post.likes | capitalizeLikes}}</button>
           </div>
         </div>
       </div>
@@ -49,10 +49,27 @@ export default {
       if (!value) return ''
       value = value.toString()
       return value.toUpperCase()
+    },
+    methods: {
+
+      likePressed: function (id) {
+
+        let likebutton = document.getElementById(id);
+
+        if (likebutton.classList.contains('liked')) {
+
+          likebutton.classList.remove('liked');
+
+        } else {
+
+          likebutton.classList.add('liked');
+
+        }
+
+      }
     }
   }
 }
-
 
 </script>
 

@@ -10,7 +10,7 @@
           <button type="button">Search</button>
         </div>
         <div  class="avatar-container">
-          <img @click=toggleShowDropDown() src="../assets/avatar.png" alt="Me" class="avatar" id="avatar">
+          <img @click=toggleShowDropDown() :src="profile.avatar" alt="Me" class="avatar" :id="avatar">
         </div>
       </nav>
     </header>

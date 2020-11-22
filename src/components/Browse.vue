@@ -30,17 +30,27 @@ export default {
     }
   },
   methods: {
-    followPressed: function(id){
-      let followbutton = document.getElementById("follow-button"+id);
-      if(followbutton.classList.contains('followed')){
+
+    followPressed: function (id) {
+
+      let followbutton = document.getElementById(id);
+
+      if (followbutton.classList.contains('followed')) {
+
         followbutton.classList.remove('followed');
+
         followbutton.textContent = "Follow";
-      }
-      else{
+
+      } else {
+
         followbutton.classList.add('followed');
+
         followbutton.textContent = "Followed";
+
       }
-}
+
+    }
+
   }
 }
 
